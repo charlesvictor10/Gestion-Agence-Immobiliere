@@ -43,9 +43,9 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.73-b02, mixed mode)
 __Exécution de l'application__
 
 __*Veuillez suivre les indications suivantes:*__
-1. Téléchargez le fichier compressé Nom_projet.zip
+1. Téléchargez le fichier compressé Gestion_Immobilere.zip
 2. Décompressez le dans votre workspace C:/Users/nom_utilisateur/eclipse-workspace
 3. Démarrez Eclipse et cliquez sur file > Open Projects from File System...
 4. Sélectionnez le projet que vous voulez exécuter
 5. Cliquez sur finish
-6. Faites un clic droit sur le nom du projet > Run AS > Java Application
+6. Faites un clic droit sur le nom du projet > Run AS > Spring boot application
