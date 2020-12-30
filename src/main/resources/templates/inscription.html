@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<title>Gestion Immobilière</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Custom Theme files -->
+		<!--menu-->
+		<script src="js/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/immo.css" th:href="@{/css/immo.css}"/>
+		<!--//menu-->
+		<!--theme-style-->
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+		<!--//theme-style-->
+		<!---pop-up-box---->
+		<link rel="stylesheet" type="text/css" href="../static/css/popuo-box.css" th:href="@{/css/popuo-box.css}"/>
+		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Real Home Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	</head>
+	<body>	
+		<div class="header">
+			<div class="container">
+				<!--logo-->
+				<div class="logo">
+					<h1><a th:href="@{/accueil}">Sen Immo</a></h1>
+				</div>
+				<!--//logo-->
+			</div>	
+		</div>
+		<!--//-->	
+		<div class=" banner-buying">
+			<div class=" container">
+				<h3><span>Inscrip</span>tion</h3> 
+			</div>
+		</div>
+		<!--//header-->
+		<!--contact-->
+		<div class="login-right">
+			<div class="container">
+				<h3>Inscription</h3>
+				<div class="login-top">
+					<div class="form-info">
+						<form th:action="@{/saveUtilisateur}" method="post" th:object="${utilisateur}" enctype="multipart/form-data">
+							<input type="text" th:field="*{prenomUtilisateur}" placeholder="Votre prénom"/>
+							<span class="error" th:errors="*{prenomUtilisateur}"></span>
+							<input type="text" th:field="*{nomUtilisateur}" placeholder="Votre nom de famille"/>
+							<span class="error" th:errors="*{nomUtilisateur}"></span>
+							<input type="text" th:field="*{username}" placeholder="Votre nom d'utilisateur"/>
+							<span class="error" th:errors="*{username}"></span>
+							<input type="text" th:field="*{emailUtilisateur}" placeholder="Votre adresse email"/>
+							<span class="error" th:errors="*{emailUtilisateur}"></span>
+							<input type="password" th:field="*{password}" placeholder="Votre mot de passe"/>
+							<span class="error" th:errors="*{password}"></span>
+							<input type="date" class="form-control" th:field="*{dateNaissanceUtilisateur}" placeholder="Votre date de naissance" style="margin-bottom:10px;"/>
+							<span class="error" th:errors="*{dateNaissanceUtilisateur}"></span>
+							<input type="text" th:field="*{telephoneUtilisateur}" placeholder="Votre numéro de téléphone"/>
+							<span class="error" th:errors="*{telephoneUtilisateur}"></span>
+							<div class="form-group" style="margin-bottom:10px; margin-top: 10px;">
+				           		<input type="radio" th:field="*{sexeUtilisateur}" value="Homme" checked="checked"/> Homme
+				           		<input type="radio" th:field="*{sexeUtilisateur}" value="Femme"/> Femme
+				           	</div>
+							<input type="text" th:field="*{professionUtilisateur}" placeholder="Votre profession"/>
+							<span class="error" th:errors="*{professionUtilisateur}"></span>
+							<input type="text" th:field="*{nationaliteUtilisateur}" placeholder="Votre nationalité"/>
+							<span class="error" th:errors="*{nationaliteUtilisateur}"></span>
+							<input type="file" name="picture" class="form-control" style="margin-bottom:10px;"/>
+							<span class="error" th:errors="*{photoUtilisateur}"></span>
+							<label class="hvr-sweep-to-right">
+					      	 	<input type="submit" value="Inscription">
+					        </label>
+						</form>
+					</div>
+					<div class="create">
+						<h4>Vous avez un compte à Sen Immo</h4>
+						<a class="hvr-sweep-to-right" th:href="@{/connexion}">Connexion</a>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="col-md-4 footer-logo">
+						<h2><a th:href="@{/accueil}">Sen Immo</a></h2>
+					</div>
+					<div class="col-md-8 footer-class">
+						<p >© 2019 Sen Immo. Tous droits réservés</p>
+					</div>
+					<div class="clearfix"> </div>
+			 	</div>
+			</div>
+		</div>
+		<!--//footer-->
+	</body>
+</html>

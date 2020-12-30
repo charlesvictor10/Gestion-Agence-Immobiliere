@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!--menu-->
+		<script src="js/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+		<!--theme-style-->
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>	
+		<!---pop-up-box---->
+		<link rel="stylesheet" type="text/css" href="../static/css/popuo-box.css" th:href="@{/css/popuo-box.css}"/>
+		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<!---//pop-up-box---->
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- slide -->
+		<script src="js/responsiveslides.min.js"></script>
+		<script>
+		    $(function () {
+		      $("#slider").responsiveSlides({
+		      	auto: true,
+		      	speed: 500,
+		        namespace: "callbacks",
+		        pager: true,
+		      });
+		    });
+		</script>
+		<title>Gestion Immobilière</title>
+	</head>
+	<body>
+		<div class="navigation">
+				<div class="container-fluid">
+					<nav class="pull">
+						<ul>
+							<li><a th:href="@{/accueil}">Accueil</a></li>
+							<li><a th:href="@{/about}">A propos</a></li>
+							<li><a th:href="@{/immo}">Logements</a></li>
+							<li><a th:href="@{/agence}">Agences Immobilières</a></li>
+							<li><a th:href="@{/condition}">Conditions</a></li>
+							<li><a th:href="@{/contact}">Contact</a></li>
+						</ul>
+					</nav>			
+				</div>
+			</div>
+			<div class="header">
+				<div class="container">
+					<!--logo-->
+				<div class="logo">
+					<h1><a th:href="@{/accueil}">Sen Immo</a></h1>
+				</div>
+				<!--//logo-->
+				<div class="top-nav">
+					<div class="nav-icon">
+						<div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
+							<a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
+						</div>	
+					</div>
+					<div class="clearfix"> </div>
+				
+					<div id="small-dialog" class="mfp-hide">
+				   		<!----- tabs-box ---->
+				    	<div class="sap_tabs">	
+							<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+					    	<script type="text/javascript">
+								$(document).ready(function () {
+									$('#horizontalTab').easyResponsiveTabs({
+								    	type: 'default', //Types: default, vertical, accordion           
+								        width: 'auto', //auto or any width like 600px
+								        fit: true   // 100% fit in a container
+								     });
+								 });
+				  			</script>	
+						</div>
+					</div>
+					<script>
+						$(document).ready(function() {
+							$('.popup-with-zoom-anim').magnificPopup({
+								type: 'inline',
+								fixedContentPos: false,
+								fixedBgPos: true,
+								overflowY: 'auto',
+								closeBtnInside: true,
+								preloader: false,
+								midClick: true,
+								removalDelay: 300,
+								mainClass: 'my-mfp-zoom-in'
+							});													
+						});
+					</script>
+				</div>
+				<div class="clearfix"> </div>
+			</div>	
+		</div>
+		<div class=" banner-buying">
+			<div class=" container">
+				<h3><span>Loge</span>ments</h3> 
+				<div class="menu-right">
+					 <ul class="menu">
+						<li class="item1"><a href="#"> Menu<i class="glyphicon glyphicon-menu-down"> </i> </a>
+							<ul class="cute">
+								<li class="subitem1"><a th:href="@{/agence}">Agences</a></li>
+								<li class="subitem2"><a th:href="@{/immo}">Logements</a></li>
+								<li class="subitem3"><a th:href="@{/condition}">Conditions</a></li>
+								<li class="subitem1"><a th:href="@{/operation}">Opérations</a></li>
+								<li class="subitem2"><a th:href="@{/payement}">Paiements</a></li>
+								<li class="subitem3"><a th:href="@{/about}">Le choix</a></li>
+								<li class="subitem1"><a th:href="@{/contact}">FAQ</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+				<!--initiate accordion-->
+				<script type="text/javascript">
+					$(function() {
+					    var menu_ul = $('.menu > li > ul'),
+					    menu_a  = $('.menu > li > a');
+					    menu_ul.hide();
+					    menu_a.click(function(e) {
+					        e.preventDefault();
+					        if(!$(this).hasClass('active')) {
+					            menu_a.removeClass('active');
+					            menu_ul.filter(':visible').slideUp('normal');
+					            $(this).addClass('active').next().stop(true,true).slideDown('normal');
+					        } else {
+					            $(this).removeClass('active');
+					            $(this).next().stop(true,true).slideUp('normal');
+					        }
+					    });
+					});
+				</script>
+			</div>
+		</div>
+		<div class="single">
+			<div class="container">
+				<div class="single-buy">
+					<form th:action="@{/immo}" method="get">
+						<div class="price-grid">
+							<div class="col-sm-4 price-top">
+								<h4>Ville</h4>
+								<input class="form-control" type="text" name="nomVille"/>
+							</div>
+							<div class="col-sm-4 price-top">
+								<h4>Categorie</h4>
+								<input class="form-control" type="text" name="designation"/>
+							</div>
+							<div class="col-sm-4 price-top">
+								<h4>Nature</h4>
+								<input class="form-control" type="text" name="etatLogement"/>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="price-grid">
+							<div class="col-sm-4 price-top">
+								<h4>Nombre de pièces</h4>
+								<input class="form-control" type="text" name="nombrePieceLogement"/>
+							</div>
+							<div class="col-sm-4 price-top">
+								<h4>Prix à payer</h4>
+								<input class="form-control" type="text" name="prixLogement"/>
+							</div>
+							<div class="col-sm-4 price-top">
+								<h4>Superficie</h4>
+								<input class="form-control" type="text" name="superficieLogement"/>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
+						<input class="btn btn-success" type="submit" value="Chercher"/>
+					</form>
+				</div>
+			</div>
+			<div class="container">
+				<div class="buy-single">
+					<h3>Appartements, Villas, Terrains, Bureaux</h3>
+					<div class="box-sin">
+						<div class="col-md-12 single-box">
+							<div class="box-col" th:each="l:${listeLogements}">
+				     			<div class="col-sm-7 left-side">
+									<a th:href="@{/detail(idLogement=${l.idLogement})}"><img class="img-responsive" th:src="@{getPhoto(id=${l.idLogement})}" th:alt="${l.referenceLogement}" width="640px" height="434px"></a>
+								</div>				
+								<div class="col-sm-5 middle-side">
+							    	<h4>Caractéristiques</h4>
+							    	<p>Référence du logement : <span class="bath" th:text="${l.referenceLogement}"></span></p>
+							     	<p>Nature : <span class="bath" th:text="${l.etatLogement}"></span></p>
+							     	<p>Nombre de pièces : <span class="bath1" th:text="${l.nombrePieceLogement}"></span></p>
+							     	<p>Nombre de chambres : <span class="bath2" th:text="${l.nombreChambreLogement}"></span></p>
+							     	<p>Nombre de salle de bain : <span class="bath3" th:text="${l.nombreSalleBainLogement}"></span></p>
+								 	<p>Superficie : <span class="bath4" th:text="${l.superficieLogement}"></span></p>
+								 	<p>Prix : <span class="bath5" th:text="${l.prixLogement}"></span></p>		
+								 	<p>Propriétaire : <span class="bath" th:text="${l.proprietaireLogement}"></span></p>		
+								 	<p>Ville : <span class="bath2" th:text="${l.ville.nomVille}"></span></p>		 
+									<div class="right-side">
+										<a th:href="@{/contact}" class="hvr-sweep-to-right more">Contacter Nous</a>     
+									</div>
+					 			</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="nav-page">
+						<nav>
+					    	<ul class="pagination">
+					    		<li th:class="${status.index==pageCourante}?'active':''" th:each="p,status:${pages}">
+									<a th:href="@{/immo(page=${status.index},nomVille=${nomVille},designation=${designation},etatLogement=${etatLogement},nombrePieceLogement=${nombrePieceLogement},prixLogement=${prixLogement},superficieLogement=${superficieLogement})}" th:text="${status.index}"></a>
+								</li>
+					     	</ul>
+  						 </nav>
+   					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="col-md-4 footer-logo">
+						<h2><a th:href="@{/accueil}">Sen Immo</a></h2>
+					</div>
+					<div class="col-md-8 footer-class">
+						<p >© 2019 Sen Immo. Tous droits réservés</p>
+					</div>
+					<div class="clearfix"> </div>
+			 	</div>
+			</div>
+		</div>
+		<!--//footer-->
+	</body>
+</html>

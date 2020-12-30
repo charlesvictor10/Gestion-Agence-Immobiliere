@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<title>Gestion Immobilière</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Custom Theme files -->
+		<!--menu-->
+		<script src="js/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+		<!--//menu-->
+		<!--theme-style-->
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+		<!--//theme-style-->
+		<!---pop-up-box---->
+		<link rel="stylesheet" type="text/css" href="../static/css/popuo-box.css" th:href="@{/css/popuo-box.css}"/>
+		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Real Home Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	</head>
+	<body>
+		<!--header-->
+		<div class="navigation">
+			<div class="container-fluid">
+				<nav class="pull">
+					<ul>
+						<li><a th:href="@{/accueil}">Accueil</a></li>
+						<li><a th:href="@{/about}">A propos</a></li>
+						<li><a th:href="@{/immo}">Logements</a></li>
+						<li><a th:href="@{/agence}">Agences Immobilières</a></li>
+						<li><a th:href="@{/condition}">Conditions</a></li>
+						<li><a th:href="@{/contact}">Contact</a></li>
+					</ul>
+				</nav>			
+			</div>
+		</div>
+	
+		<div class="header">
+			<div class="container">
+				<!--logo-->
+				<div class="logo">
+					<h1><a th:href="@{/accueil}">Sen Immo</a></h1>
+				</div>
+				<!--//logo-->
+				<div class="top-nav">
+					<div class="nav-icon">
+						<div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
+							<a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
+						</div>	
+					</div>
+					<div class="clearfix"> </div>
+					<!---//pop-up-box---->
+					<div id="small-dialog" class="mfp-hide">
+					<!----- tabs-box ---->
+						<div class="sap_tabs">	
+							<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+							<script type="text/javascript">
+								$(document).ready(function () {
+									$('#horizontalTab').easyResponsiveTabs({
+										type: 'default', //Types: default, vertical, accordion           
+										width: 'auto', //auto or any width like 600px
+										fit: true   // 100% fit in a container
+									});
+								});
+							</script>	
+						</div>
+					</div>
+					<script>
+						$(document).ready(function() {
+							$('.popup-with-zoom-anim').magnificPopup({
+								type: 'inline',
+								fixedContentPos: false,
+								fixedBgPos: true,
+								overflowY: 'auto',
+								closeBtnInside: true,
+								preloader: false,
+								midClick: true,
+								removalDelay: 300,
+								mainClass: 'my-mfp-zoom-in'
+							});																
+						});
+					</script>
+				</div>
+				<div class="clearfix"> </div>
+			</div>	
+		</div>
+		<!--//-->	
+		<div class=" banner-buying">
+			<div class=" container">
+				<h3><span>A Pro</span>pos</h3> 
+				<!---->
+				<div class="menu-right">
+			 		<ul class="menu">
+						<li class="item1"><a href="#"> Menu<i class="glyphicon glyphicon-menu-down"> </i> </a>
+							<ul class="cute">
+								<li class="subitem1"><a th:href="@{/agence}">Agences</a></li>
+								<li class="subitem2"><a th:href="@{/immo}">Logements</a></li>
+								<li class="subitem3"><a th:href="@{/condition}">Conditions</a></li>
+								<li class="subitem1"><a th:href="@{/operation}">Opérations</a></li>
+								<li class="subitem2"><a th:href="@{/payement}">Paiements</a></li>
+								<li class="subitem3"><a th:href="@{/about}">Le choix</a></li>
+								<li class="subitem1"><a th:href="@{/contact}">FAQ</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+					<!--initiate accordion-->
+					<script type="text/javascript">
+						$(function() {
+				    		var menu_ul = $('.menu > li > ul'),
+				           	menu_a  = $('.menu > li > a');
+				    		menu_ul.hide();
+				    		menu_a.click(function(e) {
+				        		e.preventDefault();
+				        		if(!$(this).hasClass('active')) {
+				            		menu_a.removeClass('active');
+				            		menu_ul.filter(':visible').slideUp('normal');
+				            		$(this).addClass('active').next().stop(true,true).slideDown('normal');
+				        		} else {
+						            $(this).removeClass('active');
+						            $(this).next().stop(true,true).slideUp('normal');
+				        		}
+				   			 });
+						});
+					</script>
+				</div>
+			</div>
+			<!--//header-->
+			<div class="about">	
+				<div class="about-head">
+					<div class="container">
+						<h3>A Propos</h3>
+						<div class="about-in">
+							<a href="blog_single.html"><img src="images/at.jpg" alt="image" class="img-responsive "></a>			
+							<h6 ><a href="blog_single.html">Lorem ipsum dolor sit amet, consectetur adipisci ngelit. Donec nisi sem, vestibulum Etortor tortor in turpis. Proin mauris nulla, rutrum aliquet arcu vel</a></h6>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi sem, vestibulum ac lobortis quis, aliquet in metus. Suspendi sse a nibh id eros consectetur laoreet. Etiam viverra auctor orci, eu mattis ipsum rutrum nec.
+							Etortor tortor in turpis. Proin mauris nulla, rutrum aliquet arcu vel, porttitor varius dolor. Phasellus vitae tincidunt orci, et faucibus eros. Sed dolor sapien, pharetra placerat feugiat.</p>
+						</div>
+					</div>
+				</div>
+				<div class="choose-us">
+					<div class="container">
+						<h3>Pouquoi nous choisir?</h3>
+						<div class="us-choose">
+							<div class="col-md-6 why-choose">
+								<div class="  ser-grid ">
+									<i class="hi-icon hi-icon-archive glyphicon glyphicon-pencil"> </i>
+								</div>
+								<div class="ser-top beautiful"> 
+									<h5>beautiful &amp; enjoyable designs</h5>
+									<label>The standard chunk of Lorem</label>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="col-md-6 why-choose">
+								<div class=" ser-grid">
+									<i class="hi-icon hi-icon-archive glyphicon glyphicon-time"> </i>
+								</div>
+								<div class="ser-top beautiful"> 
+									<h5>beautiful &amp; enjoyable designs</h5>
+									<label>The standard chunk of Lorem</label>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="us-choose">
+						<div class="col-md-6 why-choose">
+							<div class=" ser-grid">
+								<i class="hi-icon hi-icon-archive glyphicon glyphicon-cog"> </i>
+							</div>
+							<div class="ser-top beautiful"> 
+								<h5>beautiful &amp; enjoyable designs</h5>
+								<label>The standard chunk of Lorem</label>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="col-md-6 why-choose">
+							<div class=" ser-grid">
+								<i class="hi-icon hi-icon-archive glyphicon glyphicon-file"> </i>
+							</div>
+							<div class="ser-top beautiful"> 
+								<h5>beautiful &amp; enjoyable designs</h5>
+								<label>The standard chunk of Lorem</label>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="col-md-4 footer-logo">
+						<h2><a th:href="@{/accueil}">Sen Immo</a></h2>
+					</div>
+					<div class="col-md-8 footer-class">
+						<p >© 2019 Sen Immo. Tous droits réservés</p>
+					</div>
+					<div class="clearfix"> </div>
+			 	</div>
+			</div>
+		</div>
+		<!--//footer-->
+	</body>
+</html>

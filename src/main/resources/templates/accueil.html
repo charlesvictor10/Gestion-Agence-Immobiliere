@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!--menu-->
+		<script src="js/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+		<!--theme-style-->
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>	
+		<!---pop-up-box---->
+		<link rel="stylesheet" type="text/css" href="../static/css/popuo-box.css" th:href="@{/css/popuo-box.css}"/>
+		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<!---//pop-up-box---->
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- slide -->
+		<script src="js/responsiveslides.min.js"></script>
+		<script>
+		    $(function () {
+		      $("#slider").responsiveSlides({
+		      	auto: true,
+		      	speed: 500,
+		        namespace: "callbacks",
+		        pager: true,
+		      });
+		    });
+		</script>
+		<title>Gestion Immobilière</title>
+	</head>
+	<body>
+		<div class="navigation">
+			<div class="container-fluid">
+				<nav class="pull">
+					<ul>
+						<li><a th:href="@{/accueil}">Accueil</a></li>
+						<li><a th:href="@{/about}">A propos</a></li>
+						<li><a th:href="@{/immo}">Logements</a></li>
+						<li><a th:href="@{/agence}">Agences Immobilières</a></li>
+						<li><a th:href="@{/condition}">Conditions</a></li>
+						<li><a th:href="@{/contact}">Contact</a></li>
+					</ul>
+				</nav>			
+			</div>
+		</div>
+		<div class="header">
+			<div class="container">
+				<!--logo-->
+				<div class="logo">
+					<h1><a th:href="@{/accueil}">Sen Immo</a></h1>
+				</div>
+				<!--//logo-->
+				<div class="top-nav">
+					<div class="nav-icon">
+						<div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
+							<a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
+						</div>	
+					</div>
+					<div class="clearfix"> </div>
+				
+					<div id="small-dialog" class="mfp-hide">
+				   		<!----- tabs-box ---->
+				    	<div class="sap_tabs">	
+							<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+					    	<script type="text/javascript">
+								$(document).ready(function () {
+									$('#horizontalTab').easyResponsiveTabs({
+								    	type: 'default', //Types: default, vertical, accordion           
+								        width: 'auto', //auto or any width like 600px
+								        fit: true   // 100% fit in a container
+								     });
+								 });
+				  			</script>	
+						</div>
+					</div>
+					<script>
+						$(document).ready(function() {
+							$('.popup-with-zoom-anim').magnificPopup({
+								type: 'inline',
+								fixedContentPos: false,
+								fixedBgPos: true,
+								overflowY: 'auto',
+								closeBtnInside: true,
+								preloader: false,
+								midClick: true,
+								removalDelay: 300,
+								mainClass: 'my-mfp-zoom-in'
+							});													
+						});
+					</script>
+				</div>
+				<div class="clearfix"> </div>
+			</div>	
+		</div>
+		<div class="header-right">
+			<div class=" banner">
+				<div class="slider">
+		    		<div class="callbacks_container">
+		      			<ul class="rslides" id="slider">		       
+					 		<li>
+					        	<div class="banner1">
+					           		<div class="caption">
+							          	<h3><span>Vie </span> idéal</h3>
+							          	<p>Vous satisfaire notre objectif</p>
+					          		</div>
+					          	</div>
+			         		</li>
+					 		<li>
+			          	 		<div class="banner2">
+					           		<div class="caption">
+								    	<h3><span>Espace </span>vital</h3>
+								        <p>Vous cherchez nous trouvons</p>
+						          	</div>
+				          		</div>
+				         	</li>
+						    <li>
+						       	<div class="banner3">
+						        	<div class="caption">
+								       	<h3><span>Confort </span>total</h3>
+								         <p>La modernité notre crédo</p>
+						          	</div>
+						    	</div>
+						    </li>		
+			      		</ul>
+			  		</div>
+				</div>
+			</div>
+		</div>
+		<!--header-bottom-->
+		<div class="banner-bottom-top">
+			<div class="container">
+				<div class="bottom-header">
+					<div class="header-bottom">
+						<div class=" bottom-head">
+							<a th:href="@{/agence}">
+								<div class="buy-media">
+									<i class="rent"> </i>
+									<h6>Agences</h6>
+								</div>
+							</a>
+						</div>
+						<div class=" bottom-head">
+							<a th:href="@{/immo}">
+								<div class="buy-media">
+									<i class="loan"> </i>
+									<h6>Logements</h6>
+								</div>
+							</a>
+						</div>
+						<div class=" bottom-head">
+							<a th:href="@{/condition}">
+								<div class="buy-media">
+									<i class="deal"> </i>
+									<h6>Conditions</h6>
+								</div>
+							</a>
+						</div>
+						<div class=" bottom-head">
+							<a th:href="@{/operation}">
+								<div class="buy-media">
+									<i class="rent"> </i>
+									<h6>Opérations</h6>
+								</div>
+							</a>
+						</div>
+						<div class=" bottom-head">
+							<a th:href="@{/payement}">
+								<div class="buy-media">
+									<i class="deal"> </i>
+									<h6>Paiements</h6>
+								</div>
+							</a>
+						</div>
+						<div class=" bottom-head">
+							<a th:href="@{/about}">
+								<div class="buy-media">
+									<i class="apart"> </i>
+									<h6>Le choix</h6>
+								</div>
+							</a>
+						</div>
+						<div class=" bottom-head">
+							<a th:href="@{/contact}">
+								<div class="buy-media">
+									<i class="sell"> </i>
+									<h6>FAQ</h6>
+								</div>
+							</a>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div layout:fragment="content">
+			<div class="content-grid">
+				<div class="container">
+					<h3>Nouveautés</h3>
+					<div class="col-md-4 box_2" th:each="l:${nouveautes}">
+				    	<a th:href="@{/immo}" class="mask">
+				     		<img class="img-responsive zoom-img" th:src="@{getPhoto(id=${l.idLogement})}" th:alt="${l.referenceLogement}">
+				     	   	<span class="four" th:text="${l.prixLogement}">FCFA</span>
+				     	</a>
+				     	<div class="most-1">
+				     		<h5 th:text="${l.referenceLogement}"><a th:href="@{/immo}"></a></h5>
+				     	    <p th:text="${l.etatLogement}"></p>
+				     	</div>
+				 	</div>
+		 			<div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="content-bottom">
+				<div class="container">
+					<h3>Témoignages</h3>
+					<div class="col-md-6 name-in" th:each="t:${listeTemoignages}">
+						<div class=" bottom-in">
+							<p class="para-in" th:text="${t.message}"></p>
+					    	<i class="dolor"> </i>
+							<div class="men-grid">
+								<img class="img-responsive men-top" th:src="@{getPhotoUtilisateur(username=${t.utilisateur.username})}" th:alt="${t.utilisateur.username}" width="70px" height="70px">
+								<div class="men">
+									<span th:text="${t.utilisateur.prenomUtilisateur}" ></span>
+									<span th:text="${t.utilisateur.nomUtilisateur}" ></span>
+									<p th:text="${t.utilisateur.professionUtilisateur}"></p> 
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>		
+		</div>
+		<div class="content-bottom1">
+			<h3>Nos partenaires</h3>
+	 		<div class="container">
+				<ul>
+					<li th:each="p:${listePartenaires}"><img class="img-responsive" th:src="@{getLogo(id=${p.idPartenaire})}" th:alt="${p.nomPartenaire}" width="150px" height="30px"></li>
+					<div class="clearfix"> </div>
+				</ul>
+			</div>
+		</div>	
+		<!--footer-->
+		<div class="footer">
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="col-md-4 footer-logo">
+						<h2><a th:href="@{/accueil}">Sen Immo</a></h2>
+					</div>
+					<div class="col-md-8 footer-class">
+						<p >© 2019 Sen Immo. Tous droits réservés</p>
+					</div>
+					<div class="clearfix"> </div>
+			 	</div>
+			</div>
+		</div>
+		<!--//footer-->
+	</body>
+</html>

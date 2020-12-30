@@ -1,0 +1,97 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!--menu-->
+		<script src="js/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/immo.css" th:href="@{/css/immo.css}"/>
+		<!--theme-style-->
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>	
+		<!---pop-up-box---->
+		<link rel="stylesheet" type="text/css" href="../static/css/popuo-box.css" th:href="@{/css/popuo-box.css}"/>
+		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<!---//pop-up-box---->
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- slide -->
+		<script src="js/responsiveslides.min.js"></script>
+		<script>
+		    $(function () {
+		      $("#slider").responsiveSlides({
+		      	auto: true,
+		      	speed: 500,
+		        namespace: "callbacks",
+		        pager: true,
+		      });
+		    });
+		</script>
+		<title>Gestion Immobilière</title>
+	</head>
+	<body>
+		<div class="header">
+			<div class="container">
+				<!--logo-->
+				<div class="logo">
+					<h1><a th:href="@{/admin/listeLogement}">Sen Immo</a></h1>
+				</div>
+				<!--//logo-->
+				<div class="top-nav">
+					<ul class="right-icons">
+						<li><a th:href="@{/admin/listePartenaire}">Partenaires</a></li>
+						<li><a th:href="@{/admin/listeTypeBien}">Type Biens</a></li>
+						<li><a th:href="@{/admin/listeLogement}">Logements</a></li>
+						<li><a th:href="@{/admin/listeRegion}">Régions</a></li>
+						<li><a th:href="@{/admin/listeDepartement}">Départements</a></li>
+						<li><a th:href="@{/admin/listeVille}">Villes</a></li>
+						<li><a th:href="@{/admin/listeEntreprise}">Entreprises</a></li>
+						<li><a th:href="@{/admin/listeImage}">Images</a></li>
+						<li><a th:href="@{/admin/listeTemoignage}">Témoignages</a></li>
+						<li><a th:href="@{/admin/listeUtilisateur}">Utilisateurs</a></li>
+						<li><a th:href="@{/admin/listeRole}">Rôles</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>	
+		</div>
+		<div class="banner-buying">
+			<div class="container">
+				<h3><span>Type </span>Biens</h3> 
+			</div>
+		</div>	
+		<div class="blog">
+			<div class="container">
+				<div class="leave col-md-6 col-md-offset-3">
+					<h5>Modifier un type de bien</h5>
+					<form th:action="@{/admin/updateTypeBien}" method="post" th:object="${typeBien}">
+						<input type="hidden" th:field="*{idTypeBien}"/>
+			           	<span class="error" th:errors="*{idTypeBien}"></span>
+					   	<input type="text" th:field="*{designation}"/>
+			           	<span class="error" th:errors="*{designation}"></span>
+						<label class="hvr-sweep-to-right">
+				        <input type="submit" value="Enregistrer">
+				        </label>
+					</form>
+				</div>	
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="col-md-4 footer-logo">
+						<h2><a th:href="@{/admin/listeLogement}">Sen Immo</a></h2>
+					</div>
+					<div class="col-md-8 footer-class">
+						<p >© 2019 Sen Immo. Tous droits réservés</p>
+					</div>
+					<div class="clearfix"> </div>
+			 	</div>
+			</div>
+		</div>
+		<!--//footer-->		
+	</body>
+</html>

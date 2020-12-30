@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!--menu-->
+		<script src="js/scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/immo.css" th:href="@{/css/immo.css}"/>
+		<!--theme-style-->
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>	
+		<!---pop-up-box---->
+		<link rel="stylesheet" type="text/css" href="../static/css/popuo-box.css" th:href="@{/css/popuo-box.css}"/>
+		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+		<!---//pop-up-box---->
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- slide -->
+		<script src="js/responsiveslides.min.js"></script>
+		<script>
+		    $(function () {
+		      $("#slider").responsiveSlides({
+		      	auto: true,
+		      	speed: 500,
+		        namespace: "callbacks",
+		        pager: true,
+		      });
+		    });
+		</script>
+		<title>Gestion Immobilière</title>
+	</head>
+
+	<body>
+		<div class="navigation">
+				<div class="container-fluid">
+					<nav class="pull">
+						<ul>
+							<li><a th:href="@{/accueil}">Accueil</a></li>
+							<li><a th:href="@{/about}">A propos</a></li>
+							<li><a th:href="@{/immo}">Logements</a></li>
+							<li><a th:href="@{/agence}">Agences Immobilières</a></li>
+							<li><a th:href="@{/bail}">Bails</a></li>
+							<li><a th:href="@{/contact}">Contact</a></li>
+						</ul>
+					</nav>			
+				</div>
+			</div>
+			<div class="header">
+				<div class="container">
+					<!--logo-->
+				<div class="logo">
+					<h1><a th:href="@{/accueil}">Sen Immo</a></h1>
+				</div>
+				<!--//logo-->
+				<div class="top-nav">
+					<ul class="right-icons">
+						<li>
+							<a th:if="isAnonymous == null" sec:authorize="isAnonymous()" th:href="@{/connexion}"><i class="glyphicon glyphicon-user"></i>Connexion</a>
+							<form th:if="isAuthenticated != null" sec:authorize="isAuthenticated()" th:action="@{/deconnexion}" method="post">
+			                    <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-user"></i>Déconnexion</button>
+			                </form>
+						</li>
+					</ul>
+					<div class="nav-icon">
+						<div class="hero fa-navicon fa-2x nav_slide_button" id="hero">
+							<a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i> </a>
+						</div>	
+					</div>
+					<div class="clearfix"> </div>
+				
+					<div id="small-dialog" class="mfp-hide">
+				   		<!----- tabs-box ---->
+				    	<div class="sap_tabs">	
+							<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+					    	<script type="text/javascript">
+								$(document).ready(function () {
+									$('#horizontalTab').easyResponsiveTabs({
+								    	type: 'default', //Types: default, vertical, accordion           
+								        width: 'auto', //auto or any width like 600px
+								        fit: true   // 100% fit in a container
+								     });
+								 });
+				  			</script>	
+						</div>
+					</div>
+					<script>
+						$(document).ready(function() {
+							$('.popup-with-zoom-anim').magnificPopup({
+								type: 'inline',
+								fixedContentPos: false,
+								fixedBgPos: true,
+								overflowY: 'auto',
+								closeBtnInside: true,
+								preloader: false,
+								midClick: true,
+								removalDelay: 300,
+								mainClass: 'my-mfp-zoom-in'
+							});													
+						});
+					</script>
+				</div>
+				<div class="clearfix"> </div>
+			</div>	
+		</div>
+		<div class=" banner-buying">
+			<div class=" container">
+				<h3><span>Problème </span>d'autorisation</h3> 
+			</div>
+		</div>
+		<div class="container">
+			<div class="home-loan">
+				<h3>Problème d'autorisation</h3>
+				<div class="loan-point">
+					<div class="col-md-8 col-md-offset-2">
+						<h2 class="error">Vous n'avez pas le droit d'accéder à cette page</h2>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<!--footer-->
+		<div class="footer">
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="col-md-4 footer-logo">
+						<h2><a th:href="@{/accueil}">Sen Immo</a></h2>
+					</div>
+					<div class="col-md-8 footer-class">
+						<p >© 2019 Sen Immo. Tous droits réservés</p>
+					</div>
+					<div class="clearfix"> </div>
+			 	</div>
+			</div>
+		</div>
+		<!--//footer-->
+	</body>
+</html>
